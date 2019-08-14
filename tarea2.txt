@@ -1,2 +1,15 @@
-digraph matriz {
+digraph matriz {
+
+node [shape = record];
+
+node0[label = "<f0> |<f1> |<f2> |"];
+
+node1[label = "<f0> |<f1> |<f2> |"];
+
+{ rank = same;"node0";}
+
+{ rank = same;"node1";}
+
+node0->node1[style = invis];
+
 }

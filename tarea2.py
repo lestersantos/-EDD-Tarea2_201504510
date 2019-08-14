@@ -64,6 +64,25 @@ while strInput != '5':
 
 		graphTxt = "digraph matriz {"+"\r\n"
 
+		graphTxt +=str("node [shape = record];"+strNewline)
+
+		for i in range(int(rows)):
+			graphTxt += str("node"+str(i)+"[label = \"")
+			for j in range(int(columns)):
+				graphTxt += str("<f"+str(j)+"> |")
+			graphTxt += str("\"];"+strNewline)
+		
+		
+		for i in range(int(rows)):
+			graphTxt += str("{ rank = same;")
+			graphTxt += str("\""+"node"+str(i)+"\";")
+			graphTxt += str("}"+strNewline)
+
+		for i in range(int(rows)):
+			graphTxt += str("node"+str(i)+"->")
+			graphTxt += str("[style = invis];"+strNewline)
+			
+
 		graphTxt += "}"
 
 		dotFile = open("tarea2.txt","w+")
@@ -93,7 +112,7 @@ while strInput != '5':
 		print("RESULTADO MAPEO LEXICOGRAFICO POR FILAS")
 		print()
 		print("Resultado = " + str(mapResult))
-		
+
 	elif strInput == '3':
 		os.system("dot -Tjpg tarea2.txt -o matriz.jpg")
 		os.system('matriz.jpg')
